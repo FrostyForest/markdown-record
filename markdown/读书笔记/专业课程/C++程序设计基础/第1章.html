@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>第1章.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p>[toc]
+#第1章 基本数据与表达式
+##1.1 概述
+<a href="../../../%E8%AF%8D%E5%BA%93/C++%E8%AF%AD%E8%A8%80.md">C++语言</a>源于<a href="../../../%E8%AF%8D%E5%BA%93/C%E8%AF%AD%E8%A8%80.md">C语言</a>,C语言诞生于1970s,最初目的为编写<a href="../../../%E8%AF%8D%E5%BA%93/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.md">操作系统</a>.
+C语言优点:</p>
+<ol>
+<li>具有高级语言的数据表示,运算功能</li>
+<li>可以直接对内存操作,运行效率高</li>
+</ol>
+<p>C语言缺点:</p>
+<ol>
+<li>缺乏数据类型检查机制</li>
+<li>代码重用性差</li>
+</ol>
+<p>1980s,美国贝尔实验室对C语言进行扩充改版,形成C++语言.
+C++语言相对于C语言的优点有:</p>
+<ol>
+<li>强化了数据的类型检查和语句结构性</li>
+<li>增加了面向对象程序设计的支持</li>
+</ol>
+<p>###1.1.1 程序设计与程序设计语言
+<a href="../../../%E8%AF%8D%E5%BA%93/%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80.md">高级语言</a>提供了常用的数据描述和对数据操作的规则描述,这些规则是&quot;脱机&quot;的,程序员只需要专注于问题的求解,不必关心机器内部结构和实现.用高级语言编写的程序称为源程序.计算机不能直接识别源程序,必须将源程序翻译成二进制代码才能在机器上运行.一旦<a href="../../../%E8%AF%8D%E5%BA%93/%E7%BC%96%E8%AF%91.md">编译</a>成功,目标程序可以反复高速执行.
+程序设计主要完成以下两方面工作:</p>
+<ol>
+<li>数据描述
+数据描述是指将被处理的信息描述成计算机可以接受的数据形式,如整数,实数,字符,数组等</li>
+<li>数据的处理
+数据处理是指对数据进行输入,输出正丽,计算,存储,维护等一系列活动</li>
+</ol>
+<p>###1.1.2 一个简单的C++程序</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+类型 函数名 (参数表)
+{
+    语句序列
+}
+</div></code></pre>
+<hr>
+<p>第一行是<a href="../../../%E8%AF%8D%E5%BA%93/%E9%A2%84%E7%BC%96%E8%AF%91.md">预编译</a>指令,说明该程序要使用的外部文件.C++的标准<a href="../../../%E8%AF%8D%E5%BA%93/%E5%A4%B4%E6%96%87%E4%BB%B6.md">头文件</a>iostream包含了程序常用的输入和输出cin和cout的定义.
+第二行是使用[名空间]的声明.
+C++语言以函数为程序运行的基本单位.
+函数名是标识符,用于识别和调用函数.每个程序必须有且只有一个<a href="../../../%E8%AF%8D%E5%BA%93/%E4%B8%BB%E5%87%BD%E6%95%B0.md">主函数</a>,因为主函数是由系统启动的,main是系统规定的主函数名.
+函数名之后,如果没有函数参数,圆括号也不能省略,它是C++函数的标识.函数名,函数返回类型,函数参数表组成C++的函数头.
+函数头后花括号相括的构成函数体
+花括号也可出现在语句序列中,此时花括号相括的语句成为复合语句或语句块.
+以双斜杠开始的文本为程序注释,放在行末,以/*xxxx/*相括的注释文本可以放在程序的任何位置.</p>
+<hr>
+<pre><code class="language-mermaid"><div class="mermaid">graph LR
+a[函数头] --- b[函数返回类型]
+a---c[函数返回类型]
+a---d[函数参数表]
+e[函数]---a
+e---f[函数体]
+f---g[语句序列]
+g---h[说明语句]
+g---i[执行语句]
+g---j[流程控制语句]
+</div></code></pre>
+<hr>
+<pre><code class="language-mermaid"><div class="mermaid">graph LR
+1[花括号]---1.1[在函数头之后]---1.1.1[与所括的语句语句序列构成函数体]
+1---1.2[在语句序列中]---1.2.1[与语句构成语句块]
+</div></code></pre>
+<p>###1.1.3 程序的编译执行
+实现一个C++语言源程序主要经过一下3个步骤:</p>
+<ol>
+<li>编辑
+使用C++语言编辑器或其他文字编辑器录入源程序,保存为以.cpp为拓展名的文件</li>
+<li>编译
+预处理&gt;编译&gt;连接</li>
+<li>运行</li>
+</ol>
+<hr>
+<pre><code class="language-mermaid"><div class="mermaid">graph TB
+1.1[编辑]
+1.2[编译]---1.2.1[预处理]
+1.2---1.2.2[编译]
+1.2---1.2.3[连接]
+1.1-->1.2
+1.3[运行]
+1.2.1-->1.3
+1.2.2-->1.3
+1.2.3-->1.3
+
+</div></code></pre>
+<hr>
+<p>编写程序遇到的错误可分成以下四类</p>
+<pre><code class="language-mermaid"><div class="mermaid">graph LR
+1[错误]
+1.1[编译错误]
+1.2[连接错误]
+1.3[运行错误]
+1.4[逻辑错误]
+1---1.1; 1---1.2;1---1.3;1---1.4
+</div></code></pre>
+<hr>
+<p>编写的程序应该达到以下目标</p>
+<pre><code class="language-mermaid"><div class="mermaid">graph LR
+1[目标]---1.1[正确性]
+1---1.2[易读性]
+1---1.3[健壮性]
+1---1.4[高效率]
+</div></code></pre>
+<hr>
+<p>程序+文档=软件
+##1.2 C++语言的字符集和词汇</p>
+
+</body>
+</html>
