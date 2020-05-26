@@ -2,3 +2,5 @@
 2. [不同文件间跳转](/相对路径法.md)
 3. [mermaid 画流程图,框架图](/mermaid画流程图框架图.md)
 4. [数学公式编辑](/数学公式编辑.md)
+5. [markdown常用通用语法](/markdown通用常用语法.md)
+6. [mermaid语法](/mermaid语法.md)
